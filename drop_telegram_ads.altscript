@@ -1,0 +1,18 @@
+/*
+@sovascript 2.0
+@alt 1.3.0
+@id drop_telegram_ads
+@icon brackets
+@title Fuck Telegram Sponsors
+@description Скрипт для скрытия спонсорской рекламы 
+@author VaS1lyDev
+*/
+
+Alt.postHook('TL_channels_getSponsoredMessages', (account, request, response, callback) => {
+     var local='{"_type":"TL_messages_sponsoredMessagesEmpty","chats":[],"flags":0,"messages":[],"posts_between":0,"users":[]}';
+	 var json=JSON.parse(local);
+	callback({
+		'strategy': 'override',
+		'response': json
+	});
+});
